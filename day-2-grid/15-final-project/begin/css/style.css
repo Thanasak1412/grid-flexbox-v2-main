@@ -89,9 +89,6 @@ nav ul {
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: space-between;
-}
-
-nav li {
     flex-basis: 48%;
     margin-bottom: 0.5rem;
 }
@@ -121,6 +118,21 @@ nav a:hover {
     color: var(--color5);
 }
 
+/* donut-love styles */
+
+#donut ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.d3 {
+    grid-row: 1/2;
+}
+
+#donut img {
+    width: 100%;
+}
 
 /* hero styles */
 
@@ -322,88 +334,109 @@ footer address {
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
 @media (min-width: 550px) {
+
     section ul,
     footer {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
     }
+
     section li,
     .social,
     address {
         flex-basis: 49.5%;
     }
+
     #popular li:last-child {
         flex-basis: 100%;
     }
+
     #popular li:last-child figure {
         max-height: 400px;
     }
+
     #popular li:last-child figure img {
         object-position: 0 -350px;
     }
+
     figure {
         max-height: 100%;
     }
+
     /* turn off object position, inherit object-fit: cover */
     figure img {
         object-position: 0;
     }
+
     /* display: flow-root clears the float!!!! max-width keeps the text line length shorter */
     .missiontext {
         display: flow-root;
         max-width: 900px;
     }
+
     /* working with an image with a wide width so we have flexibility to set the shape-outside polygon points where we want. The edges of the image limit their placement. In Firefox, you can draw with shape-outside in browser tools */
     .missionimg {
         float: left;
         shape-outside: polygon(35.84% 94.87%, 34.64% 87.05%, 51.64% 4.06%, 55.1% 2.38%);
         max-height: 211px;
     }
+
     /* remove the top margin assigned above that provided space between .social and address */
     footer address {
         margin-top: 0;
     }
+
     /* header/nav layout */
     header {
         padding: 3rem;
     }
+
     /* navigation: logo on the top line, the rest of the navigation on the second line */
     nav ul {
         justify-content: center;
         gap: 1.2em;
     }
+
     nav li {
         flex-basis: auto;
         margin-bottom: 0;
     }
+
     nav a {
         color: var(--color1);
         background-color: transparent;
         padding: 0;
     }
+
     nav a:hover {
         color: var(--color2);
         background-color: transparent;
     }
+
     /* popart grid layout */
     #popart ul {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
+
     .colspan2 {
         grid-column: span 2;
     }
+
     .colspan3 {
         grid-column: span 3;
     }
+
     .rowspan2 {
         grid-row: span 2;
     }
+
     .rowspan2 figure {
         max-height: unset;
     }
+
     /* for some reason, the figures don't always fill their LI container. This keeps them evenly sized */
     figure {
         height: 100%;
@@ -414,35 +447,94 @@ footer address {
     section h2 {
         margin-left: 100px;
     }
+
     section li,
     .social,
     #popular li:last-child {
         flex-basis: 32.5%;
     }
+
     #popular li:last-child figure img {
         object-position: 0;
     }
+
     #popular li:last-child figure {
         max-height: 100%;
     }
+
     address {
         flex-basis: 65.5%;
     }
+
     /* navigation - logo in the center */
     nav ul {
         justify-content: flex-end;
     }
+
     nav li:first-child {
         flex-basis: auto;
         margin: 0 auto;
         order: 2;
     }
+
     nav li:nth-child(2),
     nav li:nth-child(3) {
         order: 1;
     }
+
     nav li:nth-child(4),
     nav li:nth-child(5) {
         order: 3;
+    }
+
+    #donut ul {
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
+
+    .d1 {
+        grid-row: 1/4;
+        grid-column: 1/2;
+    }
+
+    .d3 {
+        grid-row: 1/2;
+        grid-column: 2/3;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .author, .d3 img {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+
+    .d3 img {
+        opacity: 0.2;
+    }
+
+    .author {
+        z-index: 1000;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .d4 {
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+
+    .d5 {
+        grid-row: 3/6;
+        grid-column: 2/3;
+    }
+
+    .d5 img {
+        height: 100%;
+    }
+
+    .d2 {
+        grid-row: 4/6;
+        grid-column: 1/2;
     }
 }
